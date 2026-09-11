@@ -8,7 +8,7 @@ Este repositório reúne a documentação da **1ª etapa** da AEP: análise do p
 
 ## Integrantes da equipe
 
-| Integrante | Responsabilidade principal |
+| Integrantes | Responsabilidade principal |
 |---|---|
 | Nicollas Daniel - 26006093-2 | Coordenação, produção textual e documentação (METEP) |
 | Mateus Chagas - 26004950-2 | Modelagem, requisitos, fluxogramas e pseudocódigos |
