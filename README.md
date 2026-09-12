@@ -83,7 +83,7 @@ pse-em-acao/
 | 5 | Incremento 3 — resumo geral, validações e testes | Planejada |
 | 6 | Documentação final, revisão dos artefatos e preparação da apresentação | Planejada |
 
-## Fluxo de trabalho no Git
+## Fluxo de trabalho no Git.
 
 - Uma branch por funcionalidade (ex.: `feature/cadastro-acao`).
 - Commits pequenos, com mensagens descritivas.
