@@ -61,5 +61,5 @@ Cada ação é representada por um registro e o conjunto de ações por um vetor
 - Autenticação de usuários, perfis de acesso e trilha de auditoria.
 - Qualquer dado individual de estudante: nome, matrícula, prontuário, diagnóstico ou condição clínica.
 - Diagnóstico, triagem médica, prescrição ou recomendação de tratamento.
-- Integração com sistemas oficiais e emissão de relatórios oficiais de prestação de contas..
+- Integração com sistemas oficiais e emissão de relatórios oficiais de prestação de contas.
 - Persistência definitiva dos dados: a gravação em arquivo é tratada como melhoria opcional.
