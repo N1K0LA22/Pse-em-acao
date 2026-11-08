@@ -1,5 +1,3 @@
-[requisitos.md](https://github.com/user-attachments/files/32133703/requisitos.md)
-
 # Requisitos do sistema — PSE em Ação
 
 Documento de apoio da 1ª etapa da AEP. As descrições completas, com a justificativa de cada decisão, estão no documento escrito em `docs/entrega1/AEP_Entrega1.pdf` (seções 5.3 e 5.4).

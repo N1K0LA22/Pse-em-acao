@@ -1,0 +1,9 @@
+# Executaveis gerados na compilacao
+pse
+pse_*
+*.exe
+*.o
+
+# Arquivos do sistema e do editor
+.DS_Store
+.vscode/

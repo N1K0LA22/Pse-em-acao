@@ -1,5 +1,3 @@
-[sprints.md](https://github.com/user-attachments/files/32133719/sprints.md)
-
 # Planejamento das sprints e riscos — PSE em Ação
 
 Documento de apoio da 1ª etapa da AEP. O detalhamento completo está no documento escrito em `docs/entrega1/AEP_Entrega1.pdf` (seções 5.6, 5.7 e 5.8).

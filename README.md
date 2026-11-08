@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/32133732/README.md)
 # PSE em Ação — Sistema de Planejamento e Acompanhamento de Ações de Saúde na Escola
 
 Atividade de Estudo Prático (AEP) — Universidade Cesumar (UniCesumar)
