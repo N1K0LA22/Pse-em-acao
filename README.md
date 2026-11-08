@@ -34,7 +34,7 @@ A proposta prevê o cadastro de ações, a consulta por código, escola ou tema,
 
 | ID | Requisito |
 |---|---|
-| RF01 | Cadastrar ação do PSE (código, escola, tema, data prevista, público-alvo, responsável, quantidade prevista, situação inicial) |
+| RF01 | Cadastrar ação do PSE (código, escola, tema, data prevista, público-alvo, responsável e quantidade prevista); a situação inicial é atribuída automaticamente como Planejada |
 | RF02 | Listar todas as ações cadastradas |
 | RF03 | Pesquisar ações por código, escola ou tema |
 | RF04 | Atualizar a situação da ação (planejada, realizada ou cancelada) |
@@ -236,9 +236,9 @@ O detalhamento de cada sprint e a matriz de riscos estão em [`docs/entrega1/spr
 
 ## Fluxo de trabalho no Git
 
-- Uma branch por funcionalidade (ex.: `feature/cadastro-acao`).
-- Commits pequenos, com mensagens descritivas.
-- Integração na branch principal apenas após revisão de outro integrante.
+- **Planejado na 1ª etapa:** uma branch por funcionalidade, com integração na branch principal após revisão de outro integrante.
+- **Usado na 2ª etapa:** os commits foram feitos diretamente na branch `main`, em incrementos, um ou mais commits por tarefa (Tarefa 1 a Tarefa 9), com mensagens descritivas em português.
+- Antes do commit, cada incremento de código foi compilado nos dois modos (`gcc -std=gnu89 -Wall -Wextra -Wdeclaration-after-statement` e `gcc -std=c99 -Wall -Wextra -pedantic`) e conferido; a partir da Tarefa 5, os testes automatizados de `tests/` (`tests/rodar_testes.sh`) também passaram a ser executados.
 
 ## Referências principais
 
