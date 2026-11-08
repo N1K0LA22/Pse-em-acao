@@ -25,6 +25,7 @@ LIMITE_SEGUNDOS=10
 EXEC="./pse"
 EXEC_LIMITE="./pse_limite"
 LOG_COMPILACAO="tests/saidas/.compilacao.log"
+CR="$(printf '\r')"
 
 mkdir -p tests/saidas
 
@@ -109,6 +110,8 @@ for caso in tests/casos/CT*.txt; do
 
     if [ -f "$esperado" ]; then
         while IFS= read -r trecho || [ -n "$trecho" ]; do
+            # Remove um \r final (arquivo com CRLF, ex.: checkout no Windows)
+            trecho="${trecho%"$CR"}"
             [ -z "$trecho" ] && continue
             case "$trecho" in
                 !*)

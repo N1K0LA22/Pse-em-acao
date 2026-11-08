@@ -1,0 +1,10 @@
+# Scripts shell sempre com LF (no Git Bash, CRLF quebra o bash com $'\r')
+*.sh text eol=lf
+# Trechos esperados com LF, para o grep -F nao procurar um \r no fim
+tests/esperado/*.txt text eol=lf
+# Entradas dos casos com LF, iguais em Mac, Linux e Windows
+tests/casos/*.txt text eol=lf
+# Saidas sao evidencia: guardadas exatamente como o programa gerou
+tests/saidas/*.txt -text
+# CT27 testa entrada do Windows: precisa continuar com CRLF (sobrescreve a regra acima)
+tests/casos/CT27_entrada_crlf_e_espacos.txt -text

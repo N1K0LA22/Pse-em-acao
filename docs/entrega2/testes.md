@@ -17,7 +17,7 @@ O script:
    - `gcc -std=c99 -Wall -Wextra -pedantic -o pse src/main.c`
 2. gera um segundo executável com `-DMAX_ACOES=3` (`pse_limite`), usado só no caso de limite (o nome do caso termina em `max3`);
 3. executa cada caso com limite de 10 segundos (usa `timeout` se existir; senão, `perl` com `alarm`), para detectar laço infinito;
-4. confere a saída com `tests/esperado/CTxx.txt`: cada linha desse arquivo é um trecho que **deve** aparecer na saída; uma linha que começa com `!` é um trecho que **não pode** aparecer. A conferência usa `grep -F`, e o caso é marcado como PASSOU ou FALHOU;
+4. confere a saída com `tests/esperado/CTxx.txt`: cada linha desse arquivo é um trecho que **deve** aparecer na saída; uma linha que começa com `!` é um trecho que **não pode** aparecer. A conferência usa `grep -F`, que verifica só se o trecho está presente (não conta quantas vezes ele aparece), e o caso é marcado como PASSOU ou FALHOU. Um `\r` no fim da linha do arquivo esperado é ignorado, para o script funcionar também com arquivos em formato Windows (CRLF);
 5. apaga os executáveis e mostra um resumo (casos executados, aprovados, código de saída diferente de 0 e tempo esgotado).
 
 No Windows, o script roda pelo Git Bash, desde que o `gcc` esteja no PATH. No Dev-C++ os testes automatizados não rodam; nele o teste é manual, digitando as entradas de cada arquivo de `tests/casos/`.
