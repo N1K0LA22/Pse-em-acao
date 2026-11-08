@@ -3,8 +3,9 @@
  * de Acoes Coletivas do Programa Saude na Escola (PSE)
  *
  * AEP - Analise e Desenvolvimento de Sistemas - UniCesumar
- * Etapa 2 - Incremento 2: pesquisa, atualizacao da situacao
- * e registro de participantes (alem do cadastro e da listagem).
+ * Etapa 2 - Incremento 3: resumo geral e revisao das validacoes
+ * (alem do cadastro, listagem, pesquisa, atualizacao da situacao
+ * e registro de participantes dos incrementos anteriores).
  *
  * Todos os dados usados no sistema sao ficticios e coletivos.
  */
@@ -423,7 +424,7 @@ const char *texto_situacao(int situacao)
     }
 }
 
-/* Mostra os dados de uma acao (usada na listagem e, depois, na pesquisa) */
+/* Mostra os dados de uma acao (usada na listagem e na pesquisa) */
 void exibir_acao(const struct AcaoPSE *acao)
 {
     printf("----------------------------------------\n");
@@ -678,8 +679,56 @@ void registrar_participantes(void)
            acao->codigo, acao->qtd_efetiva);
 }
 
-/* Opcao 6: sera implementada no proximo incremento */
+/*
+ * Opcao 6: mostra o resumo geral (pseudocodigo 5).
+ * O percentual de participacao considera apenas as acoes realizadas,
+ * para que acoes planejadas ou canceladas nao distorcam o indicador.
+ */
 void gerar_resumo(void)
 {
-    printf("\nGerar resumo: funcionalidade disponivel no proximo incremento.\n");
+    int i;
+    int planejadas = 0;
+    int realizadas = 0;
+    int canceladas = 0;
+    long total_previsto = 0;   /* soma das quantidades previstas das realizadas */
+    long total_efetivo = 0;    /* soma das quantidades efetivas das realizadas */
+    double percentual;
+
+    printf("\n--- Resumo geral ---\n");
+
+    if (total_acoes == 0) {
+        printf("Nenhuma acao cadastrada. Resumo indisponivel.\n");
+        return;
+    }
+
+    for (i = 0; i < total_acoes; i++) {
+        if (acoes[i].situacao == SITUACAO_PLANEJADA) {
+            planejadas++;
+        } else if (acoes[i].situacao == SITUACAO_REALIZADA) {
+            realizadas++;
+            total_previsto = total_previsto + acoes[i].qtd_prevista;
+            total_efetivo = total_efetivo + acoes[i].qtd_efetiva;
+        } else if (acoes[i].situacao == SITUACAO_CANCELADA) {
+            canceladas++;
+        }
+    }
+
+    printf("Total de acoes cadastradas......: %d\n", total_acoes);
+    printf("Acoes planejadas................: %d\n", planejadas);
+    printf("Acoes realizadas................: %d\n", realizadas);
+    printf("Acoes canceladas................: %d\n", canceladas);
+    printf("\nParticipacao (somente acoes realizadas):\n");
+    printf("Participantes previstos.........: %ld\n", total_previsto);
+    printf("Participantes efetivos..........: %ld\n", total_efetivo);
+
+    /* Sem acao realizada o total previsto e zero: nao pode dividir */
+    if (total_previsto > 0) {
+        /* Converte para double antes de dividir para nao perder as casas decimais */
+        percentual = (double) total_efetivo / (double) total_previsto * 100.0;
+        printf("Percentual de participacao......: %.1f%%\n", percentual);
+        printf("(participantes efetivos / previstos das acoes realizadas)\n");
+    } else {
+        printf("Percentual de participacao......: nao calculado.\n");
+        printf("Nenhuma acao realizada ainda; o percentual so considera acoes realizadas.\n");
+    }
 }
