@@ -3,8 +3,8 @@
  * de Acoes Coletivas do Programa Saude na Escola (PSE)
  *
  * AEP - Analise e Desenvolvimento de Sistemas - UniCesumar
- * Etapa 2 - Incremento 1: struct, vetor, leitura segura,
- * menu, cadastro e listagem.
+ * Etapa 2 - Incremento 2: pesquisa, atualizacao da situacao
+ * e registro de participantes (alem do cadastro e da listagem).
  *
  * Todos os dados usados no sistema sao ficticios e coletivos.
  */
@@ -30,6 +30,12 @@
 /* Tamanho do texto usado para ler numeros digitados */
 #define TAM_ENTRADA_NUMERO 20
 
+/* Tamanho da linha lida do teclado antes de conferir o tamanho do campo */
+#define TAM_LINHA 256
+
+/* Tamanho do termo de busca (o maior campo pesquisado e a escola) */
+#define TAM_TERMO TAM_ESCOLA
+
 /* Maior quantidade de participantes aceita (evita numeros absurdos) */
 #define MAX_PARTICIPANTES 100000
 
@@ -46,6 +52,11 @@
 #define OPCAO_REGISTRAR   5
 #define OPCAO_RESUMO      6
 #define OPCAO_ENCERRAR    7
+
+/* Criterios da pesquisa (pseudocodigo 3) */
+#define CRITERIO_CODIGO 1
+#define CRITERIO_ESCOLA 2
+#define CRITERIO_TEMA   3
 
 /* Registro de uma acao coletiva do PSE (Quadro 6 da entrega 1) */
 struct AcaoPSE {
@@ -75,9 +86,11 @@ int texto_para_inteiro(const char *texto, int *valor);
 int ler_inteiro(const char *rotulo, int minimo, int maximo, const char *msg_faixa);
 int validar_data(const char *data);
 void ler_data(const char *rotulo, char *destino);
+int ler_qtd_efetiva(void);
 
 /* Apoio */
 int textos_iguais_sem_caixa(const char *a, const char *b);
+int contem_texto_sem_caixa(const char *texto, const char *termo);
 int buscar_por_codigo(const char *codigo);
 const char *texto_situacao(int situacao);
 void exibir_acao(const struct AcaoPSE *acao);
@@ -173,37 +186,42 @@ void remover_espacos_pontas(char *texto)
 }
 
 /*
- * Le uma linha do teclado com fgets.
- * Retorna 1 se a linha coube em destino e 0 se era maior
- * (nesse caso o resto da linha e descartado).
+ * Le uma linha do teclado com fgets e guarda em destino, ja sem
+ * o '\n', o '\r' (arquivos do Windows) e os espacos das pontas.
+ * A linha e lida primeiro em um texto local maior; so depois de
+ * limpar as pontas e que o tamanho e comparado com o do campo.
+ * Retorna 1 se o texto coube em destino e 0 se era maior
+ * (nesse caso o resto da linha ja foi descartado).
  * Se a entrada acabar, encerra o programa.
  */
 int ler_linha(char *destino, int tamanho)
 {
-    char *quebra;
+    char linha[TAM_LINHA];
     int c;
 
-    if (fgets(destino, tamanho, stdin) == NULL) {
+    if (fgets(linha, TAM_LINHA, stdin) == NULL) {
         encerrar_fim_entrada();
     }
 
-    quebra = strchr(destino, '\n');
-    if (quebra != NULL) {
-        *quebra = '\0';
-        return 1;
-    }
-
-    /* Nao veio o '\n': ou a linha acabou exatamente aqui, ou passou do tamanho */
-    c = getchar();
-    if (c == '\n' || c == EOF) {
-        return 1;
-    }
-
-    /* Descarta o resto da linha que nao coube */
-    while (c != '\n' && c != EOF) {
+    /* Sem '\n' no texto lido: ou a entrada acabou, ou a linha e enorme */
+    if (strchr(linha, '\n') == NULL) {
         c = getchar();
+        if (c != '\n' && c != EOF) {
+            /* Descarta o resto da linha que nao coube */
+            while (c != '\n' && c != EOF) {
+                c = getchar();
+            }
+            return 0;
+        }
     }
-    return 0;
+
+    remover_espacos_pontas(linha);
+    if ((int) strlen(linha) > tamanho - 1) {
+        return 0;
+    }
+
+    strcpy(destino, linha);
+    return 1;
 }
 
 /* Le um texto obrigatorio, repetindo a pergunta ate ser valido */
@@ -218,7 +236,6 @@ void ler_texto(const char *rotulo, char *destino, int tamanho)
             continue;
         }
 
-        remover_espacos_pontas(destino);
         if (destino[0] == '\0') {
             printf("Campo obrigatorio. Preencha este campo.\n");
         } else {
@@ -272,7 +289,6 @@ int ler_inteiro(const char *rotulo, int minimo, int maximo, const char *msg_faix
             continue;
         }
 
-        remover_espacos_pontas(entrada);
         if (!texto_para_inteiro(entrada, &valor)) {
             printf("Valor invalido. Digite apenas numeros inteiros.\n");
         } else if (valor < minimo || valor > maximo) {
@@ -326,6 +342,18 @@ void ler_data(const char *rotulo, char *destino)
     }
 }
 
+/*
+ * Le a quantidade efetiva de participantes (zero ou mais).
+ * Usada na opcao 4 (ao marcar como Realizada) e na opcao 5.
+ * Pode passar da quantidade prevista (vieram mais pessoas).
+ */
+int ler_qtd_efetiva(void)
+{
+    return ler_inteiro("Quantidade efetiva de participantes: ",
+                       0, MAX_PARTICIPANTES,
+                       "Quantidade invalida. Digite zero ou mais (maximo 100000).");
+}
+
 /* ---------- Funcoes de apoio ---------- */
 
 /* Compara dois textos sem diferenciar maiusculas e minusculas (1 = iguais) */
@@ -340,6 +368,31 @@ int textos_iguais_sem_caixa(const char *a, const char *b)
         i++;
     }
     return a[i] == '\0' && b[i] == '\0';
+}
+
+/*
+ * Verifica se termo aparece dentro de texto, sem diferenciar
+ * maiusculas e minusculas (1 = contem, 0 = nao contem).
+ * Ex.: "VACINAL" esta dentro de "Verificacao vacinal".
+ */
+int contem_texto_sem_caixa(const char *texto, const char *termo)
+{
+    int inicio;
+    int j;
+
+    for (inicio = 0; texto[inicio] != '\0'; inicio++) {
+        /* Compara o termo a partir desta posicao do texto */
+        j = 0;
+        while (termo[j] != '\0' && texto[inicio + j] != '\0'
+               && tolower((unsigned char) texto[inicio + j])
+                  == tolower((unsigned char) termo[j])) {
+            j++;
+        }
+        if (termo[j] == '\0') {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 /* Procura uma acao pelo codigo. Retorna o indice no vetor ou -1 */
@@ -400,7 +453,10 @@ void exibir_menu(void)
     printf("Escolha uma opcao: ");
 }
 
-/* Le a opcao do menu. Retorna -1 se nao for um numero (a main avisa o erro) */
+/*
+ * Le a opcao do menu (e tambem dos submenus de pesquisa e de situacao).
+ * Retorna -1 se nao for um numero (quem chamou avisa o erro).
+ */
 int ler_opcao_menu(void)
 {
     char entrada[TAM_ENTRADA_NUMERO];
@@ -409,7 +465,6 @@ int ler_opcao_menu(void)
     if (!ler_linha(entrada, TAM_ENTRADA_NUMERO)) {
         return -1;
     }
-    remover_espacos_pontas(entrada);
     if (!texto_para_inteiro(entrada, &opcao)) {
         return -1;
     }
@@ -484,22 +539,146 @@ void listar_acoes(void)
     printf("Total de acoes listadas: %d\n", total_acoes);
 }
 
-/* Opcoes 3 a 6: serao implementadas nos proximos incrementos */
+/* Opcao 3: pesquisa por codigo, escola ou tema (pseudocodigo 3) */
 void pesquisar_acao(void)
 {
-    printf("\nPesquisar acao: funcionalidade disponivel no proximo incremento.\n");
+    char termo[TAM_TERMO];
+    int criterio;
+    int i;
+    int achou;
+    int encontrados = 0;
+
+    printf("\n--- Pesquisar acao ---\n");
+
+    if (total_acoes == 0) {
+        printf("Nenhuma acao cadastrada.\n");
+        return;
+    }
+
+    printf("Pesquisar por: 1 - Codigo   2 - Escola   3 - Tema\n");
+    printf("Escolha o criterio: ");
+    criterio = ler_opcao_menu();
+    if (criterio < CRITERIO_CODIGO || criterio > CRITERIO_TEMA) {
+        printf("Opcao invalida. Escolha 1, 2 ou 3. Voltando ao menu.\n");
+        return;
+    }
+
+    ler_texto("Digite o termo de busca: ", termo, TAM_TERMO);
+
+    for (i = 0; i < total_acoes; i++) {
+        if (criterio == CRITERIO_CODIGO) {
+            /* Codigo: precisa ser igual (sem diferenciar maiusculas) */
+            achou = textos_iguais_sem_caixa(acoes[i].codigo, termo);
+        } else if (criterio == CRITERIO_ESCOLA) {
+            /* Escola e tema: basta conter o termo digitado */
+            achou = contem_texto_sem_caixa(acoes[i].escola, termo);
+        } else {
+            achou = contem_texto_sem_caixa(acoes[i].tema, termo);
+        }
+
+        if (achou) {
+            exibir_acao(&acoes[i]);
+            encontrados++;
+        }
+    }
+
+    if (encontrados == 0) {
+        printf("Nenhum registro encontrado.\n");
+    } else {
+        printf("----------------------------------------\n");
+        printf("Registros encontrados: %d\n", encontrados);
+    }
 }
 
+/* Opcao 4: atualiza a situacao de uma acao (pseudocodigo 4) */
 void atualizar_situacao(void)
 {
-    printf("\nAtualizar situacao: funcionalidade disponivel no proximo incremento.\n");
+    char codigo[TAM_CODIGO];
+    int indice;
+    int nova_situacao;
+    struct AcaoPSE *acao;
+
+    printf("\n--- Atualizar situacao ---\n");
+
+    if (total_acoes == 0) {
+        printf("Nenhuma acao cadastrada.\n");
+        return;
+    }
+
+    ler_texto("Codigo da acao que sera atualizada: ", codigo, TAM_CODIGO);
+    indice = buscar_por_codigo(codigo);
+    if (indice == -1) {
+        printf("Acao nao encontrada. Confira o codigo na listagem (opcao 2).\n");
+        return;
+    }
+
+    acao = &acoes[indice];
+    printf("Acao %s - situacao atual: %s\n", acao->codigo, texto_situacao(acao->situacao));
+    printf("Nova situacao: 1 - Planejada   2 - Realizada   3 - Cancelada\n");
+    printf("Escolha a nova situacao: ");
+    nova_situacao = ler_opcao_menu();
+    if (nova_situacao < SITUACAO_PLANEJADA || nova_situacao > SITUACAO_CANCELADA) {
+        printf("Situacao invalida. Escolha 1, 2 ou 3. Nenhuma alteracao foi feita.\n");
+        return;
+    }
+
+    if (nova_situacao == SITUACAO_REALIZADA) {
+        /* Realizada: pede quantas pessoas participaram */
+        acao->qtd_efetiva = ler_qtd_efetiva();
+    } else {
+        /* Planejada ou Cancelada: nao ha participantes efetivos */
+        acao->qtd_efetiva = 0;
+    }
+    acao->situacao = nova_situacao;
+
+    printf("\nSituacao atualizada com sucesso! Acao %s agora esta: %s.\n",
+           acao->codigo, texto_situacao(acao->situacao));
+    if (acao->situacao == SITUACAO_REALIZADA) {
+        printf("Participantes efetivos registrados: %d (previstos: %d).\n",
+               acao->qtd_efetiva, acao->qtd_prevista);
+    } else {
+        printf("Quantidade efetiva de participantes: 0.\n");
+    }
 }
 
+/* Opcao 5: registra ou corrige os participantes de uma acao realizada */
 void registrar_participantes(void)
 {
-    printf("\nRegistrar participantes: funcionalidade disponivel no proximo incremento.\n");
+    char codigo[TAM_CODIGO];
+    int indice;
+    struct AcaoPSE *acao;
+
+    printf("\n--- Registrar participantes ---\n");
+
+    if (total_acoes == 0) {
+        printf("Nenhuma acao cadastrada.\n");
+        return;
+    }
+
+    ler_texto("Codigo da acao: ", codigo, TAM_CODIGO);
+    indice = buscar_por_codigo(codigo);
+    if (indice == -1) {
+        printf("Acao nao encontrada. Confira o codigo na listagem (opcao 2).\n");
+        return;
+    }
+
+    acao = &acoes[indice];
+    if (acao->situacao != SITUACAO_REALIZADA) {
+        printf("A acao %s esta %s. So e possivel registrar participantes de acoes realizadas.\n",
+               acao->codigo, texto_situacao(acao->situacao));
+        printf("Primeiro marque a acao como Realizada na opcao 4 (Atualizar situacao).\n");
+        return;
+    }
+
+    printf("Acao %s - participantes efetivos atuais: %d (previstos: %d).\n",
+           acao->codigo, acao->qtd_efetiva, acao->qtd_prevista);
+    acao->qtd_efetiva = ler_qtd_efetiva();
+
+    printf("\nParticipantes registrados com sucesso! Acao %s: %d participantes efetivos.\n",
+           acao->codigo, acao->qtd_efetiva);
 }
 
+/* Opcao 6: sera implementada no proximo incremento */
 void gerar_resumo(void)
 {
     printf("\nGerar resumo: funcionalidade disponivel no proximo incremento.\n");
