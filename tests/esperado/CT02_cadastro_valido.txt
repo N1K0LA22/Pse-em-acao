@@ -1,0 +1,8 @@
+Acao cadastrada com sucesso! Codigo: A01 - Situacao: Planejada
+Acoes cadastradas: 1 de 100.
+Codigo.............: A01
+Escola.............: Escola Municipal Sol Nascente
+Data prevista......: 15/03/2026
+Qtd. prevista......: 40
+Qtd. efetiva.......: 0
+Programa encerrado. Ate logo!

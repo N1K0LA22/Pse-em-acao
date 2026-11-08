@@ -3,9 +3,9 @@
  * de Acoes Coletivas do Programa Saude na Escola (PSE)
  *
  * AEP - Analise e Desenvolvimento de Sistemas - UniCesumar
- * Etapa 2 - Incremento 3: resumo geral e revisao das validacoes
- * (alem do cadastro, listagem, pesquisa, atualizacao da situacao
- * e registro de participantes dos incrementos anteriores).
+ * Etapa 2 - versao final: cadastro, listagem, pesquisa, atualizacao
+ * da situacao, registro de participantes e resumo geral, com
+ * validacao de todas as entradas.
  *
  * Todos os dados usados no sistema sao ficticios e coletivos.
  */
@@ -276,7 +276,10 @@ int texto_para_inteiro(const char *texto, int *valor)
     return 1;
 }
 
-/* Le um inteiro entre minimo e maximo, repetindo a pergunta ate ser valido */
+/*
+ * Le um inteiro entre minimo e maximo, repetindo a pergunta ate ser valido.
+ * Se o valor ficar fora da faixa, mostra msg_faixa seguida do maximo aceito.
+ */
 int ler_inteiro(const char *rotulo, int minimo, int maximo, const char *msg_faixa)
 {
     char entrada[TAM_ENTRADA_NUMERO];
@@ -293,7 +296,7 @@ int ler_inteiro(const char *rotulo, int minimo, int maximo, const char *msg_faix
         if (!texto_para_inteiro(entrada, &valor)) {
             printf("Valor invalido. Digite apenas numeros inteiros.\n");
         } else if (valor < minimo || valor > maximo) {
-            printf("%s\n", msg_faixa);
+            printf("%s (maximo %d).\n", msg_faixa, maximo);
         } else {
             valido = 1;
         }
@@ -352,7 +355,7 @@ int ler_qtd_efetiva(void)
 {
     return ler_inteiro("Quantidade efetiva de participantes: ",
                        0, MAX_PARTICIPANTES,
-                       "Quantidade invalida. Digite zero ou mais (maximo 100000).");
+                       "Quantidade invalida. Digite zero ou mais");
 }
 
 /* ---------- Funcoes de apoio ---------- */
@@ -507,7 +510,7 @@ void cadastrar_acao(void)
 
     nova.qtd_prevista = ler_inteiro("Quantidade prevista de participantes: ",
                                     1, MAX_PARTICIPANTES,
-                                    "Quantidade invalida. Digite um valor maior que zero (maximo 100000).");
+                                    "Quantidade invalida. Digite um valor maior que zero");
 
     /* Toda acao nova comeca como Planejada e sem participantes efetivos */
     nova.situacao = SITUACAO_PLANEJADA;

@@ -1,0 +1,8 @@
+Acao A01 - situacao atual: Planejada
+Quantidade invalida. Digite zero ou mais (maximo 100000).
+Valor invalido. Digite apenas numeros inteiros.
+Situacao atualizada com sucesso! Acao A01 agora esta: Realizada.
+Participantes efetivos registrados: 35 (previstos: 40).
+Situacao...........: Realizada
+Qtd. efetiva.......: 35
+Programa encerrado. Ate logo!

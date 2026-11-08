@@ -1,0 +1,31 @@
+1
+A01
+Escola Municipal Sol Nascente
+Alimentacao saudavel
+15/03/2026
+5o ano - turmas A e B
+Enf. Carla Mendes
+40
+1
+A02
+Escola Estadual Monte Verde
+Saude mental
+15/03/2026
+5o ano - turmas A e B
+Enf. Carla Mendes
+40
+1
+A03
+Escola Municipal Rio Azul
+Verificacao vacinal
+15/03/2026
+5o ano - turmas A e B
+Enf. Carla Mendes
+40
+3
+2
+municipal
+3
+2
+xyz
+7

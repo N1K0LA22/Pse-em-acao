@@ -1,0 +1,9 @@
+Acoes planejadas................: 1
+Acoes realizadas................: 0
+Acoes canceladas................: 1
+Participantes previstos.........: 0
+Percentual de participacao......: nao calculado.
+Nenhuma acao realizada ainda; o percentual so considera acoes realizadas.
+!nan
+!inf
+Programa encerrado. Ate logo!

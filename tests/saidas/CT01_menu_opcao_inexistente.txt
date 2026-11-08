@@ -1,0 +1,66 @@
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+Opcao invalida. Digite um numero de 1 a 7.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+Opcao invalida. Digite um numero de 1 a 7.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+Opcao invalida. Digite um numero de 1 a 7.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+Opcao invalida. Digite um numero de 1 a 7.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+Opcao invalida. Digite um numero de 1 a 7.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+Programa encerrado. Ate logo!

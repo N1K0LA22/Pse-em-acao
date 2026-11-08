@@ -1,0 +1,23 @@
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+--- Resumo geral ---
+Nenhuma acao cadastrada. Resumo indisponivel.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+Programa encerrado. Ate logo!

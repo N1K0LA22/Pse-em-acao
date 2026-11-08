@@ -1,0 +1,5 @@
+Texto muito longo. Use no maximo 10 caracteres.
+Texto muito longo. Use no maximo 60 caracteres.
+Acao cadastrada com sucesso! Codigo: ACAO000001
+Escola.............: Escola Municipal Sol Nascente
+Programa encerrado. Ate logo!

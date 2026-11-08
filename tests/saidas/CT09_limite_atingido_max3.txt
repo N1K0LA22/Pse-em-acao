@@ -1,0 +1,108 @@
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+--- Cadastrar acao ---
+Codigo da acao (ate 10 caracteres): Escola: Tema: Data prevista (DD/MM/AAAA): Publico-alvo (ex.: 5o ano - turmas A e B): Responsavel: Quantidade prevista de participantes: 
+Acao cadastrada com sucesso! Codigo: A01 - Situacao: Planejada
+Acoes cadastradas: 1 de 3.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+--- Cadastrar acao ---
+Codigo da acao (ate 10 caracteres): Escola: Tema: Data prevista (DD/MM/AAAA): Publico-alvo (ex.: 5o ano - turmas A e B): Responsavel: Quantidade prevista de participantes: 
+Acao cadastrada com sucesso! Codigo: A02 - Situacao: Planejada
+Acoes cadastradas: 2 de 3.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+--- Cadastrar acao ---
+Codigo da acao (ate 10 caracteres): Escola: Tema: Data prevista (DD/MM/AAAA): Publico-alvo (ex.: 5o ano - turmas A e B): Responsavel: Quantidade prevista de participantes: 
+Acao cadastrada com sucesso! Codigo: A03 - Situacao: Planejada
+Acoes cadastradas: 3 de 3.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+--- Cadastrar acao ---
+Limite de registros atingido (3 acoes). Nao e possivel cadastrar.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+--- Lista de acoes ---
+----------------------------------------
+Codigo.............: A01
+Escola.............: Escola Municipal Sol Nascente
+Tema...............: Alimentacao saudavel
+Data prevista......: 15/03/2026
+Publico-alvo.......: 5o ano - turmas A e B
+Responsavel........: Enf. Carla Mendes
+Situacao...........: Planejada
+Qtd. prevista......: 40
+Qtd. efetiva.......: 0
+----------------------------------------
+Codigo.............: A02
+Escola.............: Escola Estadual Monte Verde
+Tema...............: Alimentacao saudavel
+Data prevista......: 15/03/2026
+Publico-alvo.......: 5o ano - turmas A e B
+Responsavel........: Enf. Carla Mendes
+Situacao...........: Planejada
+Qtd. prevista......: 40
+Qtd. efetiva.......: 0
+----------------------------------------
+Codigo.............: A03
+Escola.............: Escola Municipal Rio Azul
+Tema...............: Alimentacao saudavel
+Data prevista......: 15/03/2026
+Publico-alvo.......: 5o ano - turmas A e B
+Responsavel........: Enf. Carla Mendes
+Situacao...........: Planejada
+Qtd. prevista......: 40
+Qtd. efetiva.......: 0
+----------------------------------------
+Total de acoes listadas: 3
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+Programa encerrado. Ate logo!

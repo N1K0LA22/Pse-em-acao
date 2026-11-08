@@ -1,0 +1,6 @@
+Acao cadastrada com sucesso! Codigo: A01 - Situacao: Planejada
+Data prevista......: 15/03/2026
+Qtd. prevista......: 40
+!Texto muito longo
+!Data invalida
+Programa encerrado. Ate logo!

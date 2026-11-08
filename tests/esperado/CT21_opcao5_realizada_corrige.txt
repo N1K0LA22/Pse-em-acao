@@ -1,0 +1,5 @@
+Acao A01 - participantes efetivos atuais: 35 (previstos: 40).
+Quantidade invalida. Digite zero ou mais (maximo 100000).
+Participantes registrados com sucesso! Acao A01: 38 participantes efetivos.
+Qtd. efetiva.......: 38
+Programa encerrado. Ate logo!

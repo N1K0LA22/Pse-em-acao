@@ -1,0 +1,4 @@
+Situacao invalida. Escolha 1, 2 ou 3. Nenhuma alteracao foi feita.
+Situacao...........: Planejada
+!Situacao atualizada com sucesso
+Programa encerrado. Ate logo!

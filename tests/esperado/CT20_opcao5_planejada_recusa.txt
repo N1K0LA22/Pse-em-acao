@@ -1,0 +1,4 @@
+A acao A01 esta Planejada. So e possivel registrar participantes de acoes realizadas.
+Primeiro marque a acao como Realizada na opcao 4 (Atualizar situacao).
+!Participantes registrados com sucesso
+Programa encerrado. Ate logo!

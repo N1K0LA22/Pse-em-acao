@@ -1,0 +1,8 @@
+Participantes efetivos registrados: 35 (previstos: 40).
+Acao A01 - situacao atual: Realizada
+Situacao atualizada com sucesso! Acao A01 agora esta: Cancelada.
+Quantidade efetiva de participantes: 0.
+Situacao...........: Cancelada
+Qtd. efetiva.......: 0
+!Qtd. efetiva.......: 35
+Programa encerrado. Ate logo!

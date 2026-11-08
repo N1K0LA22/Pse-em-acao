@@ -1,0 +1,6 @@
+Data invalida. Use o formato DD/MM/AAAA (ex.: 15/03/2026).
+Texto muito longo. Use no maximo 10 caracteres.
+Campo obrigatorio. Preencha este campo.
+Acao cadastrada com sucesso! Codigo: A01
+Data prevista......: 15/03/2026
+Programa encerrado. Ate logo!

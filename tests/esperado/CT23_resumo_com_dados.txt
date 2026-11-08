@@ -1,0 +1,9 @@
+Total de acoes cadastradas......: 4
+Acoes planejadas................: 1
+Acoes realizadas................: 2
+Acoes canceladas................: 1
+Participacao (somente acoes realizadas):
+Participantes previstos.........: 90
+Participantes efetivos..........: 77
+Percentual de participacao......: 85.6%
+Programa encerrado. Ate logo!

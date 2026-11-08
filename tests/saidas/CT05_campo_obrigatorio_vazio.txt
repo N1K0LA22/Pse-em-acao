@@ -1,0 +1,29 @@
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+--- Cadastrar acao ---
+Codigo da acao (ate 10 caracteres): Escola: Campo obrigatorio. Preencha este campo.
+Escola: Tema: Campo obrigatorio. Preencha este campo.
+Tema: Data prevista (DD/MM/AAAA): Publico-alvo (ex.: 5o ano - turmas A e B): Campo obrigatorio. Preencha este campo.
+Publico-alvo (ex.: 5o ano - turmas A e B): Responsavel: Campo obrigatorio. Preencha este campo.
+Responsavel: Quantidade prevista de participantes: 
+Acao cadastrada com sucesso! Codigo: A01 - Situacao: Planejada
+Acoes cadastradas: 1 de 100.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+Programa encerrado. Ate logo!

@@ -1,0 +1,76 @@
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+--- Cadastrar acao ---
+Codigo da acao (ate 10 caracteres): Escola: Tema: Data prevista (DD/MM/AAAA): Publico-alvo (ex.: 5o ano - turmas A e B): Responsavel: Quantidade prevista de participantes: 
+Acao cadastrada com sucesso! Codigo: A01 - Situacao: Planejada
+Acoes cadastradas: 1 de 100.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+--- Cadastrar acao ---
+Codigo da acao (ate 10 caracteres): Escola: Tema: Data prevista (DD/MM/AAAA): Publico-alvo (ex.: 5o ano - turmas A e B): Responsavel: Quantidade prevista de participantes: 
+Acao cadastrada com sucesso! Codigo: A02 - Situacao: Planejada
+Acoes cadastradas: 2 de 100.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+--- Atualizar situacao ---
+Codigo da acao que sera atualizada: Acao A02 - situacao atual: Planejada
+Nova situacao: 1 - Planejada   2 - Realizada   3 - Cancelada
+Escolha a nova situacao: 
+Situacao atualizada com sucesso! Acao A02 agora esta: Cancelada.
+Quantidade efetiva de participantes: 0.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+--- Resumo geral ---
+Total de acoes cadastradas......: 2
+Acoes planejadas................: 1
+Acoes realizadas................: 0
+Acoes canceladas................: 1
+
+Participacao (somente acoes realizadas):
+Participantes previstos.........: 0
+Participantes efetivos..........: 0
+Percentual de participacao......: nao calculado.
+Nenhuma acao realizada ainda; o percentual so considera acoes realizadas.
+
+===== PSE EM ACAO =====
+1 - Cadastrar acao
+2 - Listar acoes
+3 - Pesquisar acao
+4 - Atualizar situacao
+5 - Registrar participantes
+6 - Gerar resumo
+7 - Encerrar
+Escolha uma opcao: 
+Programa encerrado. Ate logo!

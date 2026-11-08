@@ -1,0 +1,5 @@
+Quantidade invalida. Digite um valor maior que zero (maximo 100000).
+Valor invalido. Digite apenas numeros inteiros.
+Acao cadastrada com sucesso! Codigo: A01
+Qtd. prevista......: 40
+Programa encerrado. Ate logo!

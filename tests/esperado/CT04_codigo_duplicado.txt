@@ -1,0 +1,4 @@
+Codigo ja cadastrado. Digite outro.
+Acao cadastrada com sucesso! Codigo: A02
+Total de acoes listadas: 2
+Programa encerrado. Ate logo!
