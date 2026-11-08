@@ -325,7 +325,7 @@ Diferenças entre o que foi implementado em `src/main.c` e os pseudocódigos, fl
 
 ### Observação sobre o nome do PDF da 1ª entrega
 
-O `README.md` (linha da árvore de pastas), o `docs/entrega1/requisitos.md`, o `docs/entrega1/sprints.md` e a própria seção 7 do PDF citam o documento como `AEP_Entrega1.pdf`, mas o arquivo real no repositório é `docs/entrega1/AEP_Entrega1_PSE_em_Acao.pdf`. Os arquivos `.md` e o PDF da 1ª entrega não tiveram o conteúdo alterado (apenas a limpeza da Tarefa 1: remoção de uma linha solta de upload no topo de `requisitos.md` e `sprints.md` e mudança dos PNG para `docs/fluxogramas/`), para preservar o que foi avaliado; o nome correto fica registrado aqui.
+O `docs/entrega1/requisitos.md`, o `docs/entrega1/sprints.md` e a própria seção 7 do PDF citam o documento como `AEP_Entrega1.pdf`, mas o arquivo real no repositório é `docs/entrega1/AEP_Entrega1_PSE_em_Acao.pdf`. O `README.md` também usava o nome antigo e foi corrigido na Tarefa 8. Os arquivos `.md` e o PDF da 1ª entrega não tiveram o conteúdo alterado (apenas a limpeza da Tarefa 1: remoção de uma linha solta de upload no topo de `requisitos.md` e `sprints.md` e mudança dos PNG para `docs/fluxogramas/`), para preservar o que foi avaliado; o nome correto fica registrado aqui.
 
 ## Matriz de rastreabilidade
 
