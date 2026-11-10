@@ -7,3 +7,5 @@ pse_*
 # Arquivos do sistema e do editor
 .DS_Store
 .vscode/
+src/main
+src/main.dSYM/
