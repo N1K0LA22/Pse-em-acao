@@ -151,7 +151,7 @@ Escolha uma opcao:
 Programa encerrado. Ate logo!
 ```
 
-Como a entrada foi redirecionada de um arquivo, os textos digitados não aparecem na saída (por isso os rótulos aparecem em sequência na mesma linha). Um roteiro completo de demonstração, com 6 ações fictícias, está em [`docs/entrega2/dados_demonstracao.md`](docs/entrega2/dados_demonstracao.md).
+Como a entrada foi redirecionada de um arquivo, os textos digitados não aparecem na saída (por isso os rótulos aparecem em sequência na mesma linha).
 
 ## Estrutura do repositório
 
@@ -174,9 +174,7 @@ Pse-em-acao/
     │   └── sprints.md              (planejamento e riscos)
     ├── entrega2/
     │   ├── requisitos_atualizados.md  (requisitos finais, mudanças e rastreabilidade)
-    │   ├── testes.md               (tabela de casos de teste e resultados)
-    │   ├── explicacao_codigo.md    (explicação do código, função por função)
-    │   └── dados_demonstracao.md   (dados fictícios e roteiro da demonstração)
+    │   └── testes.md               (tabela de casos de teste e resultados)
     └── fluxogramas/
         ├── fluxograma_geral.png
         ├── fluxograma_cadastro_parte1.png
@@ -199,8 +197,6 @@ Pse-em-acao/
 - [Código-fonte (`src/main.c`)](src/main.c)
 - [Requisitos atualizados e matriz de rastreabilidade](docs/entrega2/requisitos_atualizados.md)
 - [Testes](docs/entrega2/testes.md)
-- [Explicação do código](docs/entrega2/explicacao_codigo.md)
-- [Dados e roteiro da demonstração](docs/entrega2/dados_demonstracao.md)
 - [Script de testes](tests/rodar_testes.sh)
 
 ## Conteúdo da 1ª etapa
@@ -219,7 +215,6 @@ Pse-em-acao/
 - Leitura segura das entradas (baseada em `fgets`) e validações: código duplicado, campos obrigatórios vazios, data, quantidades inválidas, opções inexistentes, registro inexistente e limite de armazenamento.
 - 27 casos de teste automatizados, com entradas, trechos esperados e saídas reais.
 - Requisitos atualizados com as mudanças em relação à 1ª etapa e matriz de rastreabilidade.
-- Material de apoio para o vídeo: explicação do código e roteiro de demonstração.
 
 ## Planejamento (processo incremental, sprints semanais)
 
