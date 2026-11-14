@@ -1,4 +1,4 @@
-# PSE em Ação — Sistema de Planejamento e Acompanhamento de Ações de Saúde na Escola
+# PSE em  — Sistema de Planejamento e Acompanhamento de Ações de Saúde na Escola
 
 Atividade de Estudo Prático (AEP) — Universidade Cesumar (UniCesumar)
 Análise e Desenvolvimento de Sistemas — Série ADSIS2S-N-A — 2º semestre de 2026
